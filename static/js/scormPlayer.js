@@ -29,6 +29,8 @@ $(document).ready(function () {
    $.get('/navTree',{contentID:contentID},function (navData) {
       console.log(JSON.stringify(navData));
       createNavList(navData);
+      // Note: comment createNavList and uncomment the line below to auto run the first SCO
+      // $("#content").attr('src', navData[0].children[0].link);
    })
 });
 
