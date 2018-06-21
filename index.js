@@ -44,18 +44,18 @@ async.each(files, (file, callback) =>{
     if(err){
         console.log(err);
     }
-    app.use('/api', express.static(__dirname + "/static"));
-    app.use('/api', express.static(__dirname + "/scormContent",{dotFiles:'allow'}));
+    app.use('/scorm', express.static(__dirname + "/static"));
+    app.use('/scorm', express.static(__dirname + "/scormContent",{dotFiles:'allow'}));
 
     app.get('/', (req, res) => {
         res.send('Hello World!');
     });
 
-    app.get('/api/navTree', (req, res) => {
+    app.get('/scorm/navTree', (req, res) => {
         res.send(navTreeMap.get(req.query.contentID));
     });
 
-    app.get('/api/content', (req, res) => {
+    app.get('/scorm/content', (req, res) => {
         var keys = [];
         navTreeMap.forEach((value, key) =>{
             keys.push(key);
