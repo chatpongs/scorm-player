@@ -26,7 +26,7 @@ $(document).ready(function () {
    var urlParams = getQueryParameters(document.location.search);
    var contentID = urlParams.contentID;
    
-   $.get('/navTree',{contentID:contentID},function (navData) {
+   $.get('navTree',{contentID:contentID},function (navData) {
       console.log(JSON.stringify(navData));
       createNavList(navData);
       // Note: comment createNavList and uncomment the line below to auto run the first SCO
@@ -40,7 +40,9 @@ var createNavList = function (navData) {
       contentNavList.append(`<li class="mainNav">${entry.title}</li>`);
       var subList = $(`<ul/>`)
       entry.children.forEach(function (child) {
-         subList.append(`<li class="subNav"><a class="navLink" href="${child.link}">${child.title}</a></li>`);
+            // Note: to allow this to work in relative path, remove the prepending '/'
+            child.link = child.link.slice(1);
+            subList.append(`<li class="subNav"><a class="navLink" href="${child.link}">${child.title}</a></li>`);
       });
       contentNavList.append(subList);
    });
