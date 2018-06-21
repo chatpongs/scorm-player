@@ -3,6 +3,15 @@ function SCORMapi1_2() {
     function initdatamodel(scoid) {
         cmi = new Object();
         cmi.core = new Object(); 
+        cmi.core.score = new Object(); 
+        cmi.objectives = new Object(); 
+        cmi.student_data = new Object(); 
+        cmi.student_preference = new Object(); 
+        cmi.interactions = new Object(); 
+        cmi.evaluation = new Object(); 
+        cmi.evaluation.comments = new Object(); 
+        nav = new Object(); 
+        
         cmi.core.lesson_status = 'not attempted';
     }
 
