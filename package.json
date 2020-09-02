@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.2"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "async": "^2.1.2",
     "express": "^4.14.0",
+    "natives": "^1.1.6",
     "unzip": "^0.1.11",
     "xmldoc": "^0.5.1"
   }
